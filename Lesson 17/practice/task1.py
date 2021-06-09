@@ -23,7 +23,7 @@ class Programmer(Employee):
         self.bonus = bonus
 
     def get_paid(self):
-        return self.salary + self.bonus
+        return super().get_paid() + self.bonus
 
 
 class Manager(Employee):
@@ -32,7 +32,7 @@ class Manager(Employee):
         self.coefficient = coefficient
 
     def get_paid(self):
-        return self.salary * self.coefficient
+        return super().get_paid() * self.coefficient
 
 
 employees = [Programmer('Anton', 'Martynov', 1000, 'python', 100),
