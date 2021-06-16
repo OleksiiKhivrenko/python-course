@@ -5,6 +5,7 @@
 # -d {{ dbname }} - подключение к дб
 # -h {{ host }} - подключение к хосту
 # https://www.postgresqltutorial.com/psql-commands/
+# createdb test
 # create database {{dbname}};
 # drop database {{dbname}};
 # \c pypy - switch to another db
@@ -42,4 +43,16 @@
 # ALTER TABLE actors ALTER COLUMN fullname TYPE varchar(30);
 # ALTER TABLE films DROP films;
 
+# # Создание пользователя с паролем
+# CREATE USER postgres WITH SUPERUSER PASSWORD 'password';
+# # Передача прав на основную настроечную базу данных новому пользователю
+# ALTER DATABASE postgres OWNER TO postgres;
+# # (ОПАСНО) Удаление пользователя, под которым зашли (ОПАСНО)
+# DROP USER USER_NAME;
+#
+# \c postgres
+# You are now connected to database "postgres" as user "user".
 
+# \d table
+# info about table
+# alter table word rename column vocaulary_id to vocabulary_id;

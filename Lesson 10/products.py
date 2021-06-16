@@ -65,3 +65,7 @@
 # select * from customer order by name using ~<~ limit 2;
 # возвращает определенное значение
 # limit 1 offset 1 - используется для пагинации
+
+
+# ctid это специальная системная колонка PostgreSQL содержащая физический адрес записи. А вообще следует исключать такие ситуации в БД. Любая таблица должна иметь уникальный ключ.
+# delete from vocabulary where ctid in (select ctid from vocabulary where name='test' and id=1 limit 1);
