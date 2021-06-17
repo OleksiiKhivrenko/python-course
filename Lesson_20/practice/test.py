@@ -3,7 +3,7 @@ import unittest
 from payments import Human, Employee
 
 
-class HumanTest(unittest.TestCase):
+class TestHuman(unittest.TestCase):
     def setUp(self):
         self.h = Human('John', 'Doe')
 
@@ -11,7 +11,7 @@ class HumanTest(unittest.TestCase):
         self.assertEqual(str(self.h), 'John Doe')
 
 
-class EmployeeTest(unittest.TestCase):
+class TestEmployee(unittest.TestCase):
     def setUp(self):
         self.e = Employee('John', 'Doe', 20001)
 
