@@ -1,2 +1,2 @@
-coverage run -m test
-coverage report -m
+coverage run test.py
+coverage report
