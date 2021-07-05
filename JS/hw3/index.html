@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="employeesList.js"></script>
+    <script>
+        class Employee {
+            constructor(info) {
+                this.info = info;
+            }
+
+            getFullName() {
+                return this.info.name + " " + this.info.surname;
+            }
+
+            getSalary() {
+                return this.info.salary;
+            }
+
+            get fullInfo() {
+                const arrInfo = Object.keys(this.info).map(item => item + " - " + this.info[item]);
+                return arrInfo.join(", ");
+            }
+
+            set fullInfo(info) {
+                this.info = {
+                    ...this.info,
+                    ...info
+                }
+                return this.info;
+            }
+        }
+
+        function createEmployees(employeesList) {
+            return employeesList.map(item => new Employee(item));
+        }
+
+        function getFullNamesFromArr(empl) {
+            return empl.map(item => item.getFullName())
+        }
+
+        function getMiddleSalary(empl) {
+            const salaries = empl.map(item => item.getSalary());
+            const totalSum = salaries.reduce((item, acc) => acc + item, 0);
+
+            return totalSum / salaries.length;
+        }
+
+        function getRandomEmployee(employees) {
+            return employees[Math.round(Math.random() * employees.length)];
+        }
+
+        const employees = createEmployees(employeesList);
+
+        console.log(employees[0].getFullName());
+        console.log(getFullNamesFromArr(employees));
+        console.log(getMiddleSalary(employees));
+        console.log(getRandomEmployee(employees))
+        console.log(employees[3].fullInfo);
+        employees[3].fullInfo = {
+            name: 'Вася',
+            salary: 9000
+        };
+        console.log(employees[3].fullInfo);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
